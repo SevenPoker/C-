@@ -48,11 +48,11 @@ void use_function_object()
 
 void use_lambda()
 {
-	std::sort(v2.begin(), v2.end(), [](int a, int b){ return a < b;});
+	std::sort(v4.begin(), v4.end(), [](int a, int b){ return a < b;});
 }
 
 int main()
-{	
+{
 	init();
 	chronometry(use_default_policy);
 	chronometry(use_function);
