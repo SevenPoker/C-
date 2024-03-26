@@ -1,4 +1,4 @@
-﻿// STL 컨테이너의 특징
+// STL 컨테이너의 특징
 #include <vector>
 #include <iostream>
 #include "show.h"
