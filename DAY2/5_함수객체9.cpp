@@ -21,15 +21,10 @@ int main()
 		{
 			return a < b;
 		}
-	}
+	};
 	std::sort(v.begin(), v.end(), CompilerGeneratedName());
+
+	return 0;
 }
 
-
-
-
-
-
-
-
-
+// cppinsights.io
