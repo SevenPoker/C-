@@ -25,7 +25,7 @@ struct Greater
 // => template 과 함수 객체를 사용하는 기술
 // => STL 의 설계 철학!! (C++98 시절부터 지원)
 template<typename T>
-void Sort(int* x, int sz, T cmp )
+inline void Sort(int* x, int sz, T cmp )
 {
 	for (int i = 0; i < sz - 1; i++)
 	{
@@ -42,7 +42,13 @@ int main()
 	int x[10] = { 1,3,5,7,9,2,4,6,8,10 };
 
 	Less    f1; f1(1, 2); Sort(x, 10, f1); // ok
-	Greater f2; f2(1, 2); Sort(x, 10, f2); // ??
+	Greater f2; f2(1, 2); Sort(x, 10, f2); // 
+
+
+	// template 단점이 있다.
+	// template의 경우는 T가 결정이 될때 만들어지기 떄문에
+	// Less를 불렀을떄 sort가 하나 만들어지고
+	// Greater를 불렀을때 sort가 하나 더 만들어진다.
 }
 
 
