@@ -47,3 +47,18 @@ public:
 	template<typename U>
 	debug_alloc( const debug_alloc<U>& ) {} // template 생성자
 };
+
+// allocator에 cppreference가서 보면 표준이 있다.
+// ==, != 도 필요하다.
+// 현재 debug_alloc 은 상태 (멤버 데이터)가 없으므로 아래처럼만 만들어도 됨.
+template<typename T>
+bool operator==(const debug_alloc<T>& a1, const debug_alloc<T>& a2)
+{
+    return true;
+}
+
+template<typename T>
+bool operator!=(const debug_alloc<T>& a1, const debug_alloc<T>& a2)
+{
+    return false;
+}
