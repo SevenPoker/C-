@@ -1,20 +1,39 @@
-﻿template<typename T> class List
-{	
+#include <iostream>
+#include <mutex>
+
+template<typename T, typename ThreadModel> class List
+{
+	ThreadModel tm;
 public:
 	void push_front(const T& a)
 	{
+		tm.lock();
 		// ......
+		tm.unlock();
 	}
 };
+// 동기화 정책 클래스
+// => 규칙은 반드시 lock/unlock 이 있어야 한다.
+class NoLock
+{
+public:
+	inline void lock() {}
+	inline void unlock() {}
+};
 
-List<int> st; // st는 전역변수. 모든 스레드가 공유.
-			  //멀티스레드환경에서 안전하지 않다.
+class MutexLock
+{
+	std::mutex m;
+public:
+	inline void lock() {m.lock(); std::cout << "lock\n";}
+	inline void unlock() {m.unlock(); std::cout << "unlock\n";}
+};
+
+List<int> st;
 
 int main()
 {
-	// 스레드로 쓰면 아래처럼 계속 lock, unlock 하지말고 객체 안에서 lock, unlock을 쓰자.
-	
-	// lock()
+	// 하지만 객체에 무조건 lock, unlock넣으면 성능저하가 됨.
+	// 따라서 선택을 하게 해줘야한다.
 	st.push_front(10);
-	// unlock()
 }
