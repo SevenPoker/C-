@@ -5,22 +5,23 @@
 
 constexpr std::size_t size = 10'000'000;
 
-using C = std::list<int>;
-//using C = std::vector<int>;
+//using C = std::list<int>;
+using C = std::vector<int>;
 
-C c;
+C c1;
+C c2;
 
 void use_push_back()
 {
 	for( int i = 0; i < size; i++ )
 	{
-		c.push_back(0);
+		c1.push_back(0);
 	}
 }
 
 void use_back_inserter()
 {
-	auto p = std::back_inserter(c);
+	auto p = std::back_inserter(c2);
 
 	for( int i = 0; i < size; i++ )
 	{
