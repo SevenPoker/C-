@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <list>
 #include <algorithm>
 
@@ -14,7 +14,7 @@ int main()
 	std::list<int>::reverse_iterator p2 = s.rbegin(); // std::rbegin(s)
 
 	// #3. 상수반복자
-	// 아래는 쓰기가 안된다.(안정성을 위해서)
+	// 아래는 쓰기가 안된다.
 	std::list<int>::const_iterator p3 = s.cbegin(); // std::cbegin(s)
 	// *p3 = 10; // error 쓰기 안됨
 	int n = *p3;
