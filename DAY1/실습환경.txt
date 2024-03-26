@@ -1,0 +1,32 @@
+#1. g++ 설치
+https://github.com/brechtsanders/winlibs_mingw/releases
+
+winlibs-x86_64-posix-seh-gcc-14.0.0-snapshot20240107-mingw-w64msvcrt-11.0.1-r1.zip ( 189MB)
+
+#2. PATH 설정
+=> "Win + R" 누른후 "sysdm.cpl" 입력후 확인
+=> 나타나는 창에서 "고급탭" 선택후 "환경변수" 버튼 선택
+=> 시스템변수 에서 "Path" 더블 클릭후
+=> mingw64/bin 폴더 등록
+
+
+#3. vscode 설치 - https://code.visualstudio.com/
+
+
+#4. 강의 소스 받기
+github.com/codenuri/ssstl => DAY1.zip
+
+
+#5. 빌드(컴파일) 하는 방법
+g++ hello.cpp 
+g++ hello.cpp -std=c++11
+g++ hello.cpp -std=c++14
+g++ hello.cpp -std=c++17
+g++ hello.cpp -std=c++20
+
+빌드결과 : a.exe 생성.
+
+#6. 빌드 및 실행 배치 파일
+build.bat 파일 참고
+C:\\mingw32(64)\\bin 폴더에 복사
+
