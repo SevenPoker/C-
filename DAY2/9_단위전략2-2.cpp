@@ -1,26 +1,42 @@
-﻿#include <vector>
+#include <vector>
+#include <iostream>
 
-// 기본적으로는 std의 기본 allocator를 쓴다.
-// new와 delete로 이루어져 있다.
-template<typename T, typename Ax = std::allocator<T>> 
-class vector
+// 사용자 정의 메모리 할당기
+// => 반드시 템플릿으로 해야하는 것은 아니지만, 
+// => 다양한 타입의 메모리 할당이 필요하므로 관례상 템플릿으로
+
+template<typename T>
+class debug_alloc
 {
-	Ax ax; // 메모리 할당기 (allocator)
-		   // vector의 모든 멤버 함수에서 메모리 할당이 필요하면
-		   // ax 객체의 멤버함수를 사용해야 한다.
 public:
-	void resize(int sz)
+	T* allocate( std::size_t sz) 
 	{
-		T* p = ax.allocate(sz); // 할당
-
-		ax.deallocate(p, sz);   // 해지
+		void* p = malloc(sizeof(T) * sz);
+		printf("allocate : %p %d cnt\n", p, sz);
+		return static_cast<T*>(p);
 	}
+	void deallocate(T* p, std::size_t sz)
+	{
+		printf("deallocate : %p %d cnt\n", p, sz);
+		free(p);
+	}
+
+	// 위 2개 멤버함수외에 아래 3개가 더 필요
+	using value_type = T;
+
+	debug_alloc() {} // 디폴트 생성자
+
+	template<typename U>
+	debug_alloc( const debug_alloc<U>& ) {} // template 생성자
 };
+
+
 
 int main()
 {
-	std::vector<int> v(5);
+//	std::vector<int> v(5); // std::vector<int, std::allocator<int>> v(5)
+
+	std::vector<int, debug_alloc<int> > v(5);
+
 	v.resize(10);
 }
-
-
