@@ -7,6 +7,10 @@ struct Plus
 	{
 		return a + b;
 	}
+	int operator[](int a, int b)
+	{
+		return a * b;
+	}
 };
 int main()
 {
@@ -15,8 +19,11 @@ int main()
 	int n = p(1, 2); // 객체인 p를 함수처럼 사용하고 있다.
 					 // "함수 객체" 라고 합니다.
 
+	int k = p[3, 4];
 	int n1 = p.operator()(1,2); // 위 코드를 컴파일러가 이렇게 해석한다.
 								// 이 코드처럼 사용해도 된다.
+
+	std::cout << k << std::endl;
 }
 
 
