@@ -22,3 +22,28 @@ void show(InputIter first, InputIter last)
     std::copy(first, last, p);
     std::cout << std::endl;
 }
+
+template<typename T>
+class debug_alloc
+{
+public:
+	T* allocate( std::size_t sz) 
+	{
+		void* p = malloc(sizeof(T) * sz);
+		printf("allocate : %p %d cnt\n", p, sz);
+		return static_cast<T*>(p);
+	}
+	void deallocate(T* p, std::size_t sz)
+	{
+		printf("deallocate : %p %d cnt\n", p, sz);
+		free(p);
+	}
+
+	// 위 2개 멤버함수외에 아래 3개가 더 필요
+	using value_type = T;
+
+	debug_alloc() {} // 디폴트 생성자
+
+	template<typename U>
+	debug_alloc( const debug_alloc<U>& ) {} // template 생성자
+};
