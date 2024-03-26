@@ -1,4 +1,4 @@
-﻿#include <vector>
+#include <vector>
 #include <iostream>
 
 // 사용자 정의 메모리 할당기
@@ -39,14 +39,16 @@ int main()
 	std::vector<int, debug_alloc<int> > v;
 
 	std::cout << " -------------------------- \n";
-	v.resize(5); // 5개 할당
+	v.resize(5); // 0. 5개 할당
 
 	std::cout << " -------------------------- \n";
 	v.resize(10); // 1. 10개 할당
 				  // 2. 5개 => 10개 버퍼에 복사
-				  // 3. 5개 해지
+				  // 3. 0.의 5개 해지
 
 	std::cout << " -------------------------- \n";
-	v.resize(7);
+	v.resize(7); // 줄어드는 경우에는 메모리 재할당이 없다.
 	std::cout << " -------------------------- \n";
 }
+
+// <= vector v 소멸자 호출 10개 제거.
