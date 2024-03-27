@@ -19,7 +19,7 @@ int main()
     std::cout << hd(3.4) << "..." << hd(3.4) % 13 <<  std::endl;
     std::cout << hs("ABC") << "..." << hs("ABC") % 13 <<  std::endl;
     std::cout << hs("XYZ") << "..." << hs("XYZ") % 13 <<  std::endl; // 이거랑 
-    std::cout << hs("aaa") << "..." << hs("aaa") % 13 <<  std::endl; // 이거랑 충돌난다.
+    std::cout << hs("aaa") << "..." << hs("aaa") % 13 <<  std::endl; // 이거랑 충돌난다. 기본 std::hash는 13의 버킷사이즈
 
 }
 
