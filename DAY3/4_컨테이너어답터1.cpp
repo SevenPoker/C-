@@ -22,7 +22,7 @@ class stack
 {
 	std::list<T> c;
 public:
-	void push(const T& a) {c.push_back(a);}
+	void push(const T& a) {c.push_back(a);} // 실제로는 inline 치환 되기 때문에 list와 동일하게 작동한다.
 	void pop()			  {c.pop_back();}
 	T& top()			{return c.back();}
 };
