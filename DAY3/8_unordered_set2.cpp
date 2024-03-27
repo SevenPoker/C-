@@ -27,6 +27,7 @@ int main()
 
 	std::cout << s.bucket_count() << std::endl;
     // bucket count는 unordered_set에서 사용가능
+	// s.reserve(200) 하면 bucket size가 200으로 증가한다.
 
 	for (int i = 0; s.bucket_count(); i++)
 	{
