@@ -18,7 +18,8 @@ int main()
     std::cout << hi(100) << "..." << hi(100) % 13 << std::endl;
     std::cout << hd(3.4) << "..." << hd(3.4) % 13 <<  std::endl;
     std::cout << hs("ABC") << "..." << hs("ABC") % 13 <<  std::endl;
-    std::cout << hs("XYZ") << "..." << hs("XYZ") % 13 <<  std::endl;
-    std::cout << hs("aaa") << "..." << hs("aaa") % 13 <<  std::endl;
+    std::cout << hs("XYZ") << "..." << hs("XYZ") % 13 <<  std::endl; // 이거랑 
+    std::cout << hs("aaa") << "..." << hs("aaa") % 13 <<  std::endl; // 이거랑 충돌난다.
+
 }
 
