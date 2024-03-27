@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <list>
 #include <vector>
 #include <deque>
@@ -10,7 +10,9 @@
 template<typename T, typename Container = std::deque<T> >
 class stack
 {
+protected: // <== 핵심!!!
 	Container c;
+
 public:
 	void push(const T& a) {c.push_back(a);}
 	void pop()			  {c.pop_back();}
