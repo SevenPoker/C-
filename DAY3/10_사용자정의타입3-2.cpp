@@ -42,7 +42,7 @@ int main()
 	bool b1 = p1 > p2;  // ok (p1 <=> p2) > 0
 	bool b2 = p1 < p2;  // ok (p1 <=> p2) < 0
 	bool b3 = p1 == p2; // ok (p1 == p2) == 0
-	bool b4 = p1 >= p2;
+	bool b4 = p1 >= p2; // ok
 }
 
 
