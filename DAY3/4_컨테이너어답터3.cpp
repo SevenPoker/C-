@@ -18,6 +18,7 @@ int main()
 
 	q2.push(90); // ok
 	q2.pop(); // error. 내부적으로 vector.pop_front() 호출
+	// 어? 근데 compile때 미리 q2에서 잡아야 하는거 아닌가?? 안되는데?
 
 }
 
