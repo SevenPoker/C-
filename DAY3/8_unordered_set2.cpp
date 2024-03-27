@@ -24,5 +24,13 @@ int main()
 	std::cout << *p << std::endl;
 
 	show(s);
+
+	std::cout << s.bucket_count() << std::endl;
+    // bucket count는 unordered_set에서 사용가능
+
+	for (int i = 0; s.bucket_count(); i++)
+	{
+		std::cout << s.bucket_size(i) << std::endl;
+	}
 }
 
