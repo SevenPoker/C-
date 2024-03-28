@@ -10,6 +10,7 @@ struct People
 	~People() { std::cout << name << " 파괴" << std::endl; }
 
     People* bf;
+    // 진짜 pointer를 쓴다면
     // 참조계수가 증가하지는 않지만
     // 가리키던 곳의 객체가 파괴되었는지 조사할수 없습니다.
     // dangling pointer 의 가능성이 있다.
