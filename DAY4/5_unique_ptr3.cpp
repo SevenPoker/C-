@@ -28,6 +28,27 @@ int main()
 
 	// shared_ptr vs unique_ptr
 	
+	std::shared_ptr<int> sp(malloc 할당, 삭제자 전달);
+	std::unique_ptr<int, 삭제자> up(malloc 할당);
 
+	// shared_ptr : control block 이 있으므로 삭제자 저장하면 됩니다.
+	// unique_ptr : 삭제자를 위한 저장공간이 없어도 된다. 아래코드 참조.
+	//              그냥 삭제자를 객체 받아서 그거 불러서 쓰면 된다.
 
+	// shared_ptr은 삭제자를 변경해도 같은 타입 (같은 container에 넣을수있다.)
+
+	// unique_ptr은 삭제자를 변경하면 다른 타입 (안된다)
+
+}
+
+template<typename T, typename Dx = std::default_delete<T>>
+class unique_ptr
+{
+	T* ptr; // 자원 포인터
+public:
+	~unique_ptr()
+	{
+		Dx d; // 삭제자 함수객체 생성
+		d(ptr); // 삭제
+	}
 }
