@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <unordered_set>
 #include "show.h"
 
@@ -23,7 +23,7 @@ struct std::hash<People>
 
 		return hs(p.name) + hi(p.age);
 	}
-}
+};
 
 template<>
 struct std::equal_to<People>
@@ -32,18 +32,11 @@ struct std::equal_to<People>
 	{
 		return p1.name == p2.name && p1.age == p2.age;
 	}
-}
+};
 
 int main()
 {
 	std::unordered_set<People> s;
-
-	std::unordered_set<People,
-					   std::hash<People>, // 이 부분은 없다. (구현 필요)
-					   std::equal_to<People>, // 이부분도 없다. (구현 필요)
-					   std::allocator<People>>
-
-
 
 	s.emplace("kim", 20); // s.insert( People("kim",20))
 	s.emplace("lee", 25);
