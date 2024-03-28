@@ -1,6 +1,8 @@
-﻿#include <iostream>
+#include <iostream>
 #include <ratio>
 
+
+// 분수를 나타내는 클래스를 아래처럼 만들었다고 생각해보자.
 class Rational 
 {
 	int num;
@@ -12,13 +14,19 @@ public:
 int main()
 {
 	// r1, r2 는 같은 타입 일까요 ? 다른 타입일까요 ?
-	Rational r1(1,10);
-	Rational r2(2,10);
+	// => 같은 타입이다.
+	// => 즉 위에서 만든 rational 을 모든 분수객체를 "동일타입"으로 취급
 
-	
+	Rational r1(1,10); // 1 / 10
+	Rational r2(2,10); // 2 / 10
 
+	// C++ 표준의 "std::ratio" 는 모든 분수를 다른 타입으로 취급하는
+	// 클래스 템플릿	
+	// 아래 ratio는 모두 다른타입
 	std::ratio<1, 10> r1; // 1/10
 	std::ratio<2, 10> r2; // 2/10 => 1/5
+
+
 }
 
 
