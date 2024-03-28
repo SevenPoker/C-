@@ -19,13 +19,13 @@ int main()
 
 	//auto ret1 = std::ranges::max(p1,p2); // error
 
-	auto ret2 = std::ragnes::max(p1,p2,{},&Point::gety); // projection으로 멤버함수 사용
+	auto ret2 = std::ranges::max(p1,p2,{},&Point::gety); // projection으로 멤버함수 사용
 
 	auto ret3 = std::ranges::max(p1,p2,{},&gety); // 일반 함수 사용
 
 	auto ret4 = std::ranges::max(p1,p2,{},&Point::y); // public 멤버 데이터 주소
 
-	// auto ret5 = std::ranges::max(p1,p2,{},[](Point p){return p.y;});
+        auto ret5 = std::ranges::max(p1,p2,{},[](Point p){return p.y;});
 
 	// projection 에는
 	// 1. public 멤버 데이터의 주소
