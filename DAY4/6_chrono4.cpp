@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <chrono>
 #include <ctime>
 #include <string>
@@ -6,6 +6,9 @@
 // system_clock : 현재 시간을 얻을때 사용하는 클래스, non monotonic clock
 // time_point   : 시간의 시작점과 duration<>을 보관하는 클래스
 //				  ex) 1970년 1월 1일 기준 16880 시간 경과
+
+
+// epoch_time : 시간의 시작점을 "1970년 1월 1일" 로 하는 시간
 
 int main()
 {
@@ -20,6 +23,7 @@ int main()
 	std::cout << nanosec.count() << std::endl;
 	std::cout << sec.count() << std::endl;
 
+	// c++20 부터는 days 타입이 있지만 c++ 이전에는 아래처럼 만들어서 사용
 	using days = std::chrono::duration<int, std::ratio<60 * 60 * 24>>;
 	std::cout << std::chrono::duration_cast<days>(tp.time_since_epoch()).count() << std::endl;
 
