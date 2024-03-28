@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <chrono>
 using namespace std::literals;
 
@@ -6,9 +6,9 @@ int main()
 {
 	// 1. predefined typedef
 	std::chrono::hours		 h(1);     // typedef duration<int, ratio<3600,1>> hours;
-	std::chrono::minutes      m  = h;
-	std::chrono::seconds      s  = h;
-	std::chrono::milliseconds ms = h;
+	std::chrono::minutes      m  = h; // using minutes = duration <int, ratio<60,1>>
+	std::chrono::seconds      s  = h; // using seconds = duration <int, ratio<1, 1>>
+	std::chrono::milliseconds ms = h; // using milliseconds = duration <int, ratio<1, 1000>>
 	std::chrono::microseconds us = h;
 	std::chrono::nanoseconds  ns = h;
 
