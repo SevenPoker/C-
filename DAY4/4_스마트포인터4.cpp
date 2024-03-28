@@ -31,5 +31,13 @@ int main()
 	// . : shared_ptr 자체의 멤버에 접근.
 	int n = sp1.use_count();
 	std::cout << n << std::endl; // 2
+
+	Car* cp = sp1.get(); // sp1이 관리하는 객체의 실제 주소
+
+	sp1.reset(); // 아래와 동일
+	sp1 = nullptr;
+
+
+
 }
 
