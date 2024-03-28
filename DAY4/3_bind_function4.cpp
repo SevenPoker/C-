@@ -38,6 +38,8 @@ int main()
 	// IOS 의 cocoa touch 라이브러리에 있는 클래스를 C++로 만든것
 	NotificationCenter nc;
 
+
+	// 중재자 패턴이다.
 	nc.addObserver("LOWBATTERY", &foo);
 	nc.addObserver("LOWBATTERY", std::bind(&goo, _1, 1));
 	nc.addObserver("DISCONNECT_WIFI", std::bind(&goo, _1, 2));
