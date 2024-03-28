@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 
 // struct hash가 template라고 알려주는 거다.
 template<typename T>
