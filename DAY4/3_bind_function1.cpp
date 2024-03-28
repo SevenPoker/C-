@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <functional>
 using namespace std::placeholders;
 
@@ -9,7 +9,9 @@ int main()
 {
 	// C언어의 함수 포인터는 유연성이 부족합니다.
     void(*f)(int) = &f1; // ok
-	f1 = &f2; 			 // error    
+	f = &f2; 			 // error    
+						 // f 에는 인자가 한개인 함수의 주소만 담을 수 있다.
+						 // f 에는 멤버 함수도 담을 수 없다.
 }
 
 
