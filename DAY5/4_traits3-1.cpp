@@ -7,7 +7,11 @@
 // => 자원의 획득은 (자원관리객체)가 초기화 될때 이다.
 // => 생성자에서 획득, 소멸자에서 반납하도록 하라는 기법
 
-// C++ 표준에 아래 코드가 이미 있다.
+// C++ 표준에 4개의 lock management 가 있다.
+// 1. std::lock_guard - 기본권장 (오버헤드가 없다)
+// 2. std::unique_lock - 기능이 제일 많음. 무겁다.
+// 3. std::shared_lock - shared-mutex 전용
+// 4. std::scoped_lock - 2개 이상의 뮤텍스를 동시에 lock 할때(dead lock 방지용)
 
 template<typename T>
 class lock_guard
