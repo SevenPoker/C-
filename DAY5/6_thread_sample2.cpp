@@ -31,7 +31,6 @@ int main()
 
 	t4 = std::thread(&foo<int>, 3); // 우변이 임시객체. 임시객체는 자동으로 move 된다.
 
-
 	// #4. 여러개의 스레드를 vector로 관리하는 기술
 	std::vector<std::thread> v(10);  // 10개를 미리 생성하고
 
