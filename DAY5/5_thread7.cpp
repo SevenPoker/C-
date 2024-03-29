@@ -1,3 +1,5 @@
+// 구글 "C++ DCLP" 에서 2번쨰 링크
+// 유투브 "CPPCON" 에서 "thread fence"
 #include <atomic>
 
 int a = 0;
