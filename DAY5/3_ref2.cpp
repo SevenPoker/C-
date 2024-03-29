@@ -4,6 +4,10 @@
 // 결국 reference_wrapper는
 // 1.객체(변수)의 주소를 보관하고 있다가
 // 2."raw reference" 로 암시적 변환이 가능한 도구이다.
+
+// 즉, 객체의 주소를 보관하고 있다가 "reference" 로 반환해 줄 수 있는 도구
+// pointer => reference 로
+
 // reference_wrapper 원리는?
 // reference의 기계어 코드는 다 포인터다.
 
