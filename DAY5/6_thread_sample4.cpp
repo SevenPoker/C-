@@ -55,7 +55,7 @@ void parallel_sum(T first, T last, R& result)
     {
         T end = std::next(start, block_size);
 
-        thread_vec[i] = std::thread(sum<std::vector<int>::iterator, int>,
+        thread_vec[i] = std::thread(sum<T, R>,
             start, end, std::ref(result_vec[i]));
 
         start = end;
@@ -75,14 +75,14 @@ void parallel_sum(T first, T last, R& result)
 int f1()
 {
     // 싱글 스레드로 합을 구하기
-    int s = 0;
+    long long s = 0;
     sum(v.begin(), v.end(), s);
     return s;
 }
 int f2()
 {
     // 멀티 스레드로 합을 구하기
-    int s = 0;
+    long long s = 0;
     parallel_sum(v.begin(), v.end(), s);
     return s;
 }
