@@ -6,7 +6,7 @@
 #include <iostream>
 #include "show.h" 
 
-constexpr std::size_t sz = 1000000;
+constexpr std::size_t sz = 100'000'000;
 
 std::vector<int> v;
 
@@ -70,8 +70,6 @@ void parallel_sum(T first, T last, R& result)
     result = ret;
 }
 
-
-
 int f1()
 {
     // 싱글 스레드로 합을 구하기
@@ -90,6 +88,9 @@ int main()
 {
     init();
 
-    chronometry(f1); // f1의 수행시간을 출력
-    chronometry(f2); // f2의 수행시간을 출력
+    long long s1 = chronometry(f1); // f1의 수행시간을 출력
+    long long s2 = chronometry(f2); // f2의 수행시간을 출력
+
+    std::cout << s1 << std::endl;
+    std::cout << s2 << std::endl;
 }
