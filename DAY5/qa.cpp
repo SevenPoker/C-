@@ -4,6 +4,11 @@ int x = 100;
 
 int main()
 {
+//  char* s3 = "ABCD"// C언어는 이 코드가 에러가 안남.
+                      // 하지만 C++ 에서는 const가 없으면 compile 에러
+//  *s3 = 'X'; // C언어 실행시 에러
+               // compile 할떄 에러가 안남
+
     const char* s1 = "ABCD";
     const char* s2 = "XYZ";
 
