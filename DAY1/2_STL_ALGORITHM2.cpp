@@ -19,6 +19,7 @@ int main()
 	char* p = strchr(s, s+4, 'c');
     // 끝을 보내서 중간에서 찾게끔 한다.'
     // 하지만 끝은 검색대상에서 제외된다.
+	// 끝을 제외하는 것이 일반적인 방법으로 좋다.
 
 	if (p == nullptr)
 		std::cout << "not found" << std::endl;
